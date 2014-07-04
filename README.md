@@ -1,4 +1,4 @@
-lamont
+Lamont
 ======
 
-An administrative interface for soccer scouting data, using the Massive Report Data schema
+This is an administrative interface for soccer scouting data, and a learning exercise for me to experiment with Angular.js.
