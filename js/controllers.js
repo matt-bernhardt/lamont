@@ -6,3 +6,10 @@ playerControllers.controller('ListController', ['$scope', '$http', function($sco
 		$scope.playerOrder = 'name';
 	});
 }]);
+
+playerControllers.controller('DetailsController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+	$http.get('api/players.json').success(function(data) {
+		$scope.players = data;
+		$scope.whichItem = $routeParams.playerId;
+	});
+}]);

@@ -5,11 +5,40 @@ body {
 h1 {
 	font-size: 1.5rem;
 	font-weight: bold;
+	margin-bottom: 1rem;
 }
 h2 {
 	font-size: 1.25rem;
 	font-weight: bold;
 }
+
+/* Page regions */
+header {
+
+}
+nav {
+	padding: 0.5rem 0;
+}
+nav ul {
+	display: table-row;
+}
+nav ul li {
+	display: table-cell;
+}
+nav ul li a {
+	text-decoration: none;
+	padding: 0.5rem;
+	display: block;
+}
+nav ul li:first-child a {
+	padding-left: 0rem;
+
+}
+footer {
+	clear: both;
+}
+
+
 .main {
 	border: 1px solid #d1d1d1;
 	width: 960px;
@@ -17,9 +46,17 @@ h2 {
 	padding: 1rem;
 	margin: 1rem auto;
 }
-table.list {
-	margin: 1rem 0;
+section.players {
+
 }
+section.players aside {
+	float: left;
+	width: 20%;
+}
+section.players table {
+	float: left;
+}
+
 table.list thead th {
 	font-size: 1rem;
 	font-weight: bold;
@@ -29,4 +66,7 @@ table.list thead th {
 table.list td {
 	font-size: .75rem;
 	padding: 0.25rem 0;
+}
+table.list td {
+	padding-right: 0.5rem;
 }

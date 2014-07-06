@@ -1,16 +1,26 @@
 <section class="players">
 	<h1>Players</h1>
+	<aside>
+		<h2><label for="playerName">Name</label></h2>
+		<input id="playerName" type="text" placeholder="Player name..." name="playerName" ng-model="query.PlayerName">
+		<h2>Position</h2>
+		<p></p>
+	</aside>
 	<table class="list">
 		<thead>
 			<tr>
-				<th>Name</th>
-				<th>Position</th>
+				<th class="number">#</th>
+				<th class="name">Name</th>
+				<th class="position">Position</th>
+				<th class="birthdate">Birthdate</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="player in players">
-				<td>{{player.PlayerName}}</td>
+			<tr ng-repeat="player in players | filter: query">
+				<td>{{player.RosterNumber}}</td>
+				<td><a href="#/player/{{players.indexOf(player)}}">{{player.PlayerName}}</a></td>
 				<td>{{player.Position}}</td>
+				<td>{{player.DOB}}</td>
 			</tr>
 		</tbody>
 	</table>

@@ -9,11 +9,19 @@ myApp.config(['$routeProvider', function($routeProvider) {
 		templateUrl: 'partials/index.html',
 		conroller: 'ListController'
 	}).
+	when('/player/:playerId', {
+		templateUrl: 'partials/player.html',
+		controller: 'DetailsController'
+	}).
 	when('/players', {
 		templateUrl: 'partials/players.html',
 		controller: 'ListController'
 	}).
+	when('/teams', {
+		templateUrl: 'partials/teams.html',
+		controller: 'ListController'
+	}).
 	otherwise({
-		redirectTo: '/players'
+		redirectTo: '/index'
 	});
-}])
+}]);

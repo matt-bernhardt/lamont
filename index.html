@@ -12,8 +12,23 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div class="main" ng-view>
-		<h1>It works!</h1>
+	<div class="main">
+		<header>
+			Lamont, You Big Dummy!
+		</header>
+		<nav>
+			<ul>
+				<li><a href="#/index">Home</a></li>
+				<li><a href="#/players">Players</a></li>
+				<li><a href="#/teams">Teams</a></li>
+			</ul>
+		</nav>
+		<div ng-view>
+			<h1>It works!</h1>
+		</div>
+		<footer>
+			This is the footer
+		</footer>
 	</div>
 </body>
 </html>
