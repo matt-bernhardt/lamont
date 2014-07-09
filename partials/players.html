@@ -9,18 +9,26 @@
 	<table class="list">
 		<thead>
 			<tr>
+				<th>Index</th>
 				<th class="number">#</th>
 				<th class="name">Name</th>
 				<th class="position">Position</th>
 				<th class="birthdate">Birthdate</th>
+				<th class="citizenship">Citizenship</th>
+				<th class="height">Height</th>
+				<th class="weight">Weight</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="player in players | filter: query">
+			<tr ng-repeat="player in players | filter: query | limitTo: 50">
+				<td>{{players.indexOf(player)}}</td>
 				<td>{{player.RosterNumber}}</td>
-				<td><a href="#/player/{{players.indexOf(player)}}">{{player.PlayerName}}</a></td>
+				<td><a href="#/player/{{player.PlayerID}}">{{player.PlayerName}}</a></td>			
 				<td>{{player.Position}}</td>
-				<td>{{player.DOB}}</td>
+				<td>{{player.DOB | date : 'MMM d, yyyy'}}</td>
+				<td>{{player.Citizenship}}</td>
+				<td>{{player.Height_Feet + '\' ' + player.Height_Inches + '"'}}</td>
+				<td>{{player.Weight}}</td>
 			</tr>
 		</tbody>
 	</table>
