@@ -4,7 +4,9 @@
 		<h2><label for="playerName">Name</label></h2>
 		<input id="playerName" type="text" placeholder="Player name..." name="playerName" ng-model="query.PlayerName">
 		<h2>Position</h2>
-		<p></p>
+		<input id="playerPosition" type="text" placeholder="Position..." name="playerPosition" ng-model="query.Position">
+		<h2>Citizenship</h2>
+		<input id="playerCitizenship" type="text" placeholder="Citizenship..." name="playerCitizenship" ng-model="query.Citizenship">
 	</aside>
 	<table class="list">
 		<thead>
@@ -20,7 +22,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="player in players | filter: query | limitTo: 50">
+			<tr ng-repeat="player in players | filter: query | limitTo: 500">
 				<td>{{players.indexOf(player)}}</td>
 				<td>{{player.RosterNumber}}</td>
 				<td><a href="#/player/{{player.PlayerID}}">{{player.PlayerName}}</a></td>			
