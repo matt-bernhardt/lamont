@@ -10,16 +10,27 @@
 		<hr>
 		<h2>Alt Position</h2>
 		<div class="checkboxes">
-			<label for="Goalkeeper"><input type="checkbox" id="Goalkeeper" name="Goalkeeper" ng-model="search.Goalkeeper" value="Goalkeeper"> Goalkeeper</label>
-			<label for="Defender"><input type="checkbox" id="Defender" name="Defender" ng-model="search.Defender" value="Defender"> Defender</label>
-			<label for="Midfielder"><input type="checkbox" id="Midfielder" name="Midfielder" ng-model="search.Midfielder" value="Midfielder"> Midfielder</label>
-			<label for="Forward"><input type="checkbox" id="Forward" name="Forward" ng-model="search.Forward" value="Forward"> Forward</label>
+			<label for="Goalkeeper"><input type="checkbox" id="Goalkeeper" name="Goalkeeper" ng-model="search.Position.Goalkeeper" value="Goalkeeper"> Goalkeeper</label>
+			<label for="Defender"><input type="checkbox" id="Defender" name="Defender" ng-model="search.Position.Defender" value="Defender"> Defender</label>
+			<label for="Midfielder"><input type="checkbox" id="Midfielder" name="Midfielder" ng-model="search.Position.Midfielder" value="Midfielder"> Midfielder</label>
+			<label for="Forward"><input type="checkbox" id="Forward" name="Forward" ng-model="search.Position.Forward" value="Forward"> Forward</label>
 		</div>
 		<hr>
-		<div ng-repeat="player in players | playerFilter:search | limitTo: 10">
-			{{player.Position}}<br>
+		<h2>Alt Citizenship</h2>
+		<div class="checkboxes">
+			<label for="Mexico"><input type="checkbox" id="Mexico" name="Mexico" ng-model="search.Citizenship.Mexico" value="Mexico"> Mexico</label>
+			<label for="Jamaica"><input type="checkbox" id="Jamaica" name="Jamaica" ng-model="search.Citizenship.Jamaica" value="Jamaica"> Jamaica</label>
+		</div>
+		<hr>
+		{{ search | json }}
+		<div ng-repeat="player in players | playerFilter:search | limitTo: 20">
+			<p style="margin-bottom: 0.5rem; font-size: 0.75rem">
+				<strong>{{player.PlayerName}}</strong><br>
+				{{player.Position}}
+			</p>
 		</div>
 	</aside>
+	<h3>Old Filter</h3>
 	<table class="list">
 		<thead>
 			<tr>
@@ -46,7 +57,7 @@
 			</tr>
 		</tbody>
 	</table>
-
+	<h3>New Filter</h3>
 	<table class="list">
 		<thead>
 			<tr>

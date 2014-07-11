@@ -19,17 +19,21 @@ playerControllers.controller('DetailsController', ['$scope', '$http', '$routePar
 }]);
 
 myApp.filter('playerFilter', function() {
-	console.log('Filter');
     return function( list, searchobj ) {
-    	console.log('asdf');
         return list.filter( function( item ) {
             var passes_filters = false,
                 any_filter_set = false;
 
-            for ( Position in searchobj ) {
-                any_filter_set = any_filter_set || searchobj[ Position ];
-                passes_filters = passes_filters || (searchobj[ Position ] && item.Position == Position);
+            for ( Position in searchobj.Position ) {
+                any_filter_set = any_filter_set || searchobj.Position[ Position ];
+                passes_filters = passes_filters || (searchobj.Position[ Position ] && item.Position == Position);
             }
+
+            for ( Citizenship in searchobj.Citizenship ) {
+                any_filter_set = any_filter_set || searchobj.Citizenship[ Citizenship ];
+                passes_filters = passes_filters || (searchobj.Citizenship[ Citizenship ] && item.Citizenship == Citizenship);
+            }
+
             return !any_filter_set || passes_filters;
         } );
     };
