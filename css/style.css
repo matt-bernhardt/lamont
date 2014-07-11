@@ -49,10 +49,15 @@ footer {
 section.players {
 
 }
+
 section.players aside {
 	float: left;
 	width: 20%;
 }
+aside div.checkboxes label {
+	display: block;
+}
+
 section.players table {
 	float: left;
 }

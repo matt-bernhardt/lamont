@@ -16,5 +16,21 @@ playerControllers.controller('DetailsController', ['$scope', '$http', '$routePar
 	}).error(function(data) {
 		$log.log('Failure receiving data from API');
 	});
-
 }]);
+
+myApp.filter('playerFilter', function() {
+	console.log('Filter');
+    return function( list, searchobj ) {
+    	console.log('asdf');
+        return list.filter( function( item ) {
+            var passes_filters = false,
+                any_filter_set = false;
+
+            for ( Position in searchobj ) {
+                any_filter_set = any_filter_set || searchobj[ Position ];
+                passes_filters = passes_filters || (searchobj[ Position ] && item.Position == Position);
+            }
+            return !any_filter_set || passes_filters;
+        } );
+    };
+});
