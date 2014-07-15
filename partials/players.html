@@ -2,13 +2,9 @@
 	<h1>Players</h1>
 	<aside>
 		<h2><label for="playerName">Name</label></h2>
-		<input id="playerName" type="text" placeholder="Player name..." name="playerName" ng-model="query.PlayerName">
-		<h2>Position</h2>
-		<input id="playerPosition" type="text" placeholder="Position..." name="playerPosition" ng-model="query.Position">
-		<h2>Citizenship</h2>
-		<input id="playerCitizenship" type="text" placeholder="Citizenship..." name="playerCitizenship" ng-model="query.Citizenship">
+		<input id="playerName" type="text" placeholder="Player name..." name="playerName" ng-model="search.PlayerName">
 		<hr>
-		<h2>Alt Position</h2>
+		<h2>Position</h2>
 		<div class="checkboxes">
 			<label for="Goalkeeper"><input type="checkbox" id="Goalkeeper" name="Goalkeeper" ng-model="search.Position.Goalkeeper" value="Goalkeeper"> Goalkeeper</label>
 			<label for="Defender"><input type="checkbox" id="Defender" name="Defender" ng-model="search.Position.Defender" value="Defender"> Defender</label>
@@ -16,48 +12,19 @@
 			<label for="Forward"><input type="checkbox" id="Forward" name="Forward" ng-model="search.Position.Forward" value="Forward"> Forward</label>
 		</div>
 		<hr>
-		<h2>Alt Citizenship</h2>
+		<h2>Citizenship</h2>
 		<div class="checkboxes">
-			<label for="Mexico"><input type="checkbox" id="Mexico" name="Mexico" ng-model="search.Citizenship.Mexico" value="Mexico"> Mexico</label>
+			<label for="Ghana"><input type="checkbox" id="Ghana" name="Ghana" ng-model="search.Citizenship.Ghana" value="Ghana"> Ghana</label>
 			<label for="Jamaica"><input type="checkbox" id="Jamaica" name="Jamaica" ng-model="search.Citizenship.Jamaica" value="Jamaica"> Jamaica</label>
+			<label for="Mexico"><input type="checkbox" id="Mexico" name="Mexico" ng-model="search.Citizenship.Mexico" value="Mexico"> Mexico</label>
+			<label for="United States"><input type="checkbox" id="United States" name="United States" ng-model="search.Citizenship.UnitedStates" value="United States"> United States</label>
 		</div>
 		<hr>
-		{{ search | json }}
-		<div ng-repeat="player in players | playerFilter:search | limitTo: 20">
-			<p style="margin-bottom: 0.5rem; font-size: 0.75rem">
-				<strong>{{player.PlayerName}}</strong><br>
-				{{player.Position}}
-			</p>
+		<h2>Search Object</h2>
+		<div>
+			{{ search | json }}
 		</div>
 	</aside>
-	<h3>Old Filter</h3>
-	<table class="list">
-		<thead>
-			<tr>
-				<th>Index</th>
-				<th class="number">#</th>
-				<th class="name">Name</th>
-				<th class="position">Position</th>
-				<th class="birthdate">Birthdate</th>
-				<th class="citizenship">Citizenship</th>
-				<th class="height">Height</th>
-				<th class="weight">Weight</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="player in players | filter: query | limitTo: 20">
-				<td>{{players.indexOf(player)}}</td>
-				<td>{{player.RosterNumber}}</td>
-				<td><a href="#/player/{{player.PlayerID}}">{{player.PlayerName}}</a></td>			
-				<td>{{player.Position}}</td>
-				<td>{{player.DOB | date : 'MMM d, yyyy'}}</td>
-				<td>{{player.Citizenship}}</td>
-				<td>{{player.Height_Feet + '\' ' + player.Height_Inches + '"'}}</td>
-				<td>{{player.Weight}}</td>
-			</tr>
-		</tbody>
-	</table>
-	<h3>New Filter</h3>
 	<table class="list">
 		<thead>
 			<tr>
