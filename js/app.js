@@ -17,6 +17,10 @@ myApp.config(['$routeProvider', function($routeProvider) {
 		templateUrl: 'partials/players.html',
 		controller: 'ListController'
 	}).
+	when('/games', {
+		templateUrl: 'partials/games.html',
+		controller: 'ListController'
+	}).
 	when('/teams', {
 		templateUrl: 'partials/teams.html',
 		controller: 'ListController'
