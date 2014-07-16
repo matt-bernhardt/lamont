@@ -1,5 +1,18 @@
 <section class="games">
 	<h1>Games</h1>
+	<aside>
+		<h2>Season</h2>
+		<div class="checkboxes">
+			<label><input type="checkbox" ng-model="search.Season.1996">1996</label>
+			<label><input type="checkbox" ng-model="search.Season.1997">1997</label>
+			<label><input type="checkbox" ng-model="search.Season.1998">1998</label>
+		</div>
+		<hr>
+		<h2>Search Object</h2>
+		<div>
+			{{ search | json }}
+		</div>
+	</aside>
 	<table class="list">
 		<thead>
 			<tr>
@@ -13,7 +26,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="game in games">
+			<tr ng-repeat="game in games | gameFilter: search">
 				<td><a href="#/game/{{game.ID}}">{{game.MatchTime}}</a></td>
 				<td>{{game.MatchType}}</td>
 				<td>{{game.HTeam}}</td>

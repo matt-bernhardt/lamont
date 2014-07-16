@@ -93,7 +93,44 @@ myApp.filter('playerFilter', function() {
 var gameControllers = angular.module('gameControllers', []);
 
 gameControllers.controller('GameListController', ['$scope', '$http', function($scope, $http) {
+    // initialize faceted search object
+    $scope.search = {
+        "Season" : {},
+    };
     $http.get('/api/games.php').success(function(data) {
         $scope.games = data;
     });
 }]);
+
+myApp.filter('gameFilter', function() {
+    return function( list, searchobj ) {
+        if (list != undefined) {
+            return list.filter( function( item ) {
+
+                // Check for filters set
+                var any_filter_set = false;
+                for ( Season in searchobj.Season) {
+                    any_filter_set = any_filter_set || searchobj.Season[ Season ];
+                }
+                // If any_filter_set is still false, just pass everything through
+                if ( !any_filter_set ) { return !any_filter_set; }
+
+                // Still here? Do the filters pass?
+                var any_value_set = false;
+                var passes_filters = false;
+
+                for ( Season in searchobj.Season ) {
+                    testYear = new Date(item.MatchTime);
+                    testYear = testYear.getFullYear();
+                    any_value_set = any_value_set || searchobj.Season[Season];
+                    passes_filters = passes_filters || (searchobj.Season[ Season ] && testYear === ~~Season);
+                }
+                if( any_value_set && !passes_filters ) {
+                    return false;
+                }
+
+                return true;
+            } );
+        }
+    };
+});
