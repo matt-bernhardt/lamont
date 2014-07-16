@@ -84,3 +84,16 @@ myApp.filter('playerFilter', function() {
         }
     };
 });
+
+/* ############################################################################
+####
+#### Games Controller
+*/
+
+var gameControllers = angular.module('gameControllers', []);
+
+gameControllers.controller('GameListController', ['$scope', '$http', function($scope, $http) {
+    $http.get('/api/games.php').success(function(data) {
+        $scope.games = data;
+    });
+}]);

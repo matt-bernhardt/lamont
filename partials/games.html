@@ -1,3 +1,27 @@
 <section class="games">
 	<h1>Games</h1>
+	<table class="list">
+		<thead>
+			<tr>
+				<th class="matchdate">Date</th>
+				<th class="competition">Competition</th>
+				<th class="hteam">Home</th>
+				<th class="hscore">Score</th>
+				<th class="ateam">Away</th>
+				<th class="ascore">Score</th>
+				<th class="attendance">Attendance</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="game in games">
+				<td><a href="#/game/{{game.ID}}">{{game.MatchTime}}</a></td>
+				<td>{{game.MatchType}}</td>
+				<td>{{game.HTeam}}</td>
+				<td>{{game.HScore}}</td>
+				<td>{{game.ATeam}}</td>
+				<td>{{game.AScore}}</td>
+				<td>{{game.Attendance}}</td>
+			</tr>
+		</tbody>
+	</table>
 </section>
