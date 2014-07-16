@@ -16,9 +16,11 @@
 		<hr>
 		<h2>Citizenship</h2>
 		<div class="checkboxes">
-			<label ng-repeat="country in filter.countries">{{country}}
+			<label ng-repeat="country in filter.countries">
+				<input type="checkbox" ng-model="'{{country}}'"> {{country}}
 			</label>
-			<label for="Ghana"><input type="checkbox" id="Ghana" name="Ghana" ng-model="search.Citizenship.Ghana" value="Ghana"> Ghana</label>
+			<label for="Ghana">
+				<input type="checkbox" id="Ghana" name="Ghana" ng-model="search.Citizenship.Ghana" value="Ghana"> Ghana</label>
 			<label for="Jamaica"><input type="checkbox" id="Jamaica" name="Jamaica" ng-model="search.Citizenship.Jamaica" value="Jamaica"> Jamaica</label>
 			<label for="Mexico"><input type="checkbox" id="Mexico" name="Mexico" ng-model="search.Citizenship.Mexico" value="Mexico"> Mexico</label>
 			<label for="United States"><input type="checkbox" id="United States" name="United States" ng-model="search.Citizenship.UnitedStates" value="United States"> United States</label>

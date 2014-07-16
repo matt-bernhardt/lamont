@@ -17,11 +17,9 @@ playerControllers.controller('ListController', ['$scope', '$http', function($sco
             "bar"
         ];
         $scope.filter.countries = [
-            "afghanistan",
-            "albania",
-            "ghana",
-            "jamaica",
-            "mexico"
+            "search.Citizenship.Afghanistan",
+            "search.Citizenship.Albania",
+            "search.Citizenship.Bermuda",
         ];
 	});
 }]);
